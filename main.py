@@ -42,5 +42,6 @@ for file in args.__dict__['files']:
     file_dict = csv.DictReader(file)
     for row in file_dict:
         master_list.append(row)
+    file.close()
 
-MatchEmails(master_list[0:100])
+#MatchEmails(master_list[0:100])
