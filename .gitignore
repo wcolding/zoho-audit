@@ -1,4 +1,4 @@
-*.csv
+/*.csv
 __pycache__/*
 matcher/__pycache__/*
 matcher/tests/__pycache__/*
