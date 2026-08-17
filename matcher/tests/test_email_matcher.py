@@ -10,8 +10,11 @@ for row in file_dict:
     test_data.append(row)
 file.close()
 
-def test_number_matched():
-    matcher = EmailMatcher()
-    matcher.find_matches(test_data)
-    print(matcher.get_report())
+matcher = EmailMatcher()
+matcher.find_matches(test_data)
+
+def test_total_number_matched():
     assert len(matcher.matched) == 3
+
+def test_case_insensitive_entries():
+    assert len(matcher.matched["unclejesse34@yahoo.com"]) == 3

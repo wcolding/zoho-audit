@@ -11,7 +11,7 @@ class Matcher():
         for contact in contacts:
                 new_entries = dict()
                 for field in self.fields:
-                    new_key = contact[field]
+                    new_key = contact[field].lower()
                     if new_key not in new_entries.keys() and new_key.strip():
                         new_entries[new_key] = contact
                 
