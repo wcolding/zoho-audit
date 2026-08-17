@@ -1,6 +1,6 @@
 import argparse
 import csv
-from Matcher import *
+from matcher.Matcher import *
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-f', '--files', nargs='*', help='File(s) to include')
@@ -10,7 +10,7 @@ args = parser.parse_args()
 master_list = list()
 
 for file in args.files:
-    print(f'File requested: {file}')
+    print(f"Reading file '{file}'")
     file = open(file, "r")
     file_dict = csv.DictReader(file)
     for row in file_dict:
@@ -24,3 +24,4 @@ if args.email:
     report_file = open("report.txt", "w+")
     report_file.write(report)
     report_file.close()
+    print("Wrote report to 'report.txt'")
