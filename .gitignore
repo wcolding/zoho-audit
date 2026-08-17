@@ -2,5 +2,4 @@
 __pycache__/*
 matcher/__pycache__/*
 matcher/tests/__pycache__/*
-*.txt
 .DS_Store
