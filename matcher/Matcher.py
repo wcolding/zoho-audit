@@ -1,18 +1,20 @@
 import re
 
 class Matcher():
-    master_dict = dict()
-    matched = dict()
+    fields = list()
     name = "Generic"
 
     def __init__(self):
-        self.fields = list()
+        self.master_dict = dict()
+        self.matched = dict()
 
     def __process_key__(self, key: str) -> str:
         return key.lower()
 
     def find_matches(self, contacts: list):
         assert len(self.fields) > 0, "No search fields defined! Create a new class that inherits from Matcher and override __init__ to define some"
+        self.master_dict.clear()
+        self.matched.clear()
         for contact in contacts:
                 new_entries = dict()
                 for field in self.fields:
@@ -48,20 +50,28 @@ class EmailMatcher(Matcher):
     def __init__(self):
         self.fields = ['EmailID', 'CF.Accounting Email']
         self.name = "Email"
+        super().__init__()
 
 class PhoneMatcher(Matcher):
     def __init__(self):
         self.fields = ['Phone']
         self.name = "Phone"
+        super().__init__()
 
     def __process_key__(self, key):
-        phone_number = re.sub(' -().', '', key).replace('+1', '')
+        phone_number = key.replace(' ', '') \
+            .replace('-', '') \
+            .replace('.', '') \
+            .replace('(', '') \
+            .replace(')', '') \
+            .replace('+1', '')
         return super().__process_key__(phone_number)
 
 class NameMatcher(Matcher):
     def __init__(self):
         self.fields = ['Display Name', 'Company Name']
         self.name = "Name"
+        super().__init__()
 
     def __process_key__(self, key):
         name = re.sub('\\(.*?\\)', '', key) # removes MASID in parentheses
