@@ -1,3 +1,5 @@
+import re
+
 class Matcher():
     master_dict = dict()
     matched = dict()
@@ -6,12 +8,15 @@ class Matcher():
     def __init__(self):
         self.fields = list()
 
+    def __process_key__(self, key: str) -> str:
+        return key.lower()
+
     def find_matches(self, contacts: list):
         assert len(self.fields) > 0, "No search fields defined! Create a new class that inherits from Matcher and override __init__ to define some"
         for contact in contacts:
                 new_entries = dict()
                 for field in self.fields:
-                    new_key = contact[field].lower()
+                    new_key = self.__process_key__(contact[field])
                     if new_key not in new_entries.keys() and new_key.strip():
                         new_entries[new_key] = contact
                 
@@ -43,3 +48,12 @@ class EmailMatcher(Matcher):
     def __init__(self):
         self.fields = ['EmailID', 'CF.Accounting Email']
         self.name = "Email"
+
+class PhoneMatcher(Matcher):
+    def __init__(self):
+        self.fields = ['Phone']
+        self.name = "Phone"
+
+    def __process_key__(self, key):
+        phone_number = re.sub(' -().', '', key).replace('+1', '')
+        return super().__process_key__(phone_number)
