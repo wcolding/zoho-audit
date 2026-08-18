@@ -64,7 +64,8 @@ class PhoneMatcher(Matcher):
             .replace('.', '') \
             .replace('(', '') \
             .replace(')', '') \
-            .replace('+1', '')
+            .replace('+1', '') \
+            .replace('\'', '')
         return super().__process_key__(phone_number)
 
 class NameMatcher(Matcher):
