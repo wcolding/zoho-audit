@@ -57,3 +57,14 @@ class PhoneMatcher(Matcher):
     def __process_key__(self, key):
         phone_number = re.sub(' -().', '', key).replace('+1', '')
         return super().__process_key__(phone_number)
+
+class NameMatcher(Matcher):
+    def __init__(self):
+        self.fields = ['Display Name', 'Company Name']
+        self.name = "Name"
+
+    def __process_key__(self, key):
+        name = re.sub('\\(.*?\\)', '', key) # removes MASID in parentheses
+        name = re.sub('-', '', name)
+        name = name.replace(' ', '')
+        return super().__process_key__(name)
