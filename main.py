@@ -1,6 +1,7 @@
 import argparse
 import csv
 from matcher.Matcher import *
+from report import GenerateReportHTML
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-f', '--files', nargs='*', help='File(s) to include')
@@ -22,11 +23,9 @@ for file in args.files:
 if args.email:
     email_matcher = EmailMatcher()
     email_matcher.find_matches(master_list)
-    report = email_matcher.get_report()
-    report_file = open("email_report.txt", "w+")
-    report_file.write(report)
-    report_file.close()
-    print("Wrote report to 'email_report.txt'")
+    GenerateReportHTML(email_matcher.matched)
+    
+
 
 if args.phone:
     phone_matcher = PhoneMatcher()

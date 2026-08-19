@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Zoho Audit Report</title>
+    <link rel="stylesheet" href="report.css">
+</head>
+
+<body>
+    <h1>Zoho Audit Report</h1>
+    <div class="report_tab">
+        <div class="report_tab_header">Select report to view</div>
+        <span>
+            <button class="report_option">By Email</button>
+            <button class="report_option">By Phone Number</button>
+            <button class="report_option">By Name</button>
+        </span>
+    </div>
+
+    <div class="report_content">
+        %%REPORT_SECTION%%
+        <div class="report_section">
+            <div class="report_header">%%REPORT_HEADER%%</div>
+            <table>
+                <tr>
+                    <th>Display Name</th>
+                    <th>MAS ID</th>
+                    <th>Zoho ID</th>
+                </tr>
+                %%REPORT_ENTRY%%
+                <tr>
+                    <td>%%ENTRY_DISPLAY_NAME%%</td>
+                    <td>%%ENTRY_MAS_ID%%</td>
+                    <td><a href="https://books.zoho.com/app/#/contacts/%%ENTRY_ZOHO_ID%%" target="_blank">%%ENTRY_ZOHO_ID%%</a></td>
+                </tr>
+                %%REPORT_ENTRY%%
+            </table>
+        </div>
+        %%REPORT_SECTION%%
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.report_tab {
+    display: grid;
+    place-items: center;
+    padding-bottom: 10pt;
+}
+
+.report_tab_header {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 10pt;
+}
+
+.report_options {
+    display: block;
+}
+
+.report_content {
+    display: grid;
+    place-items: center;
+}
+
+.report_header {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: large;
+    padding-bottom: 5pt;
+}
+
+.report_section {
+    padding-top: 20pt;
+}
+
+table { 
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+    width: 200pt;
+    text-align: center;
+}
