@@ -30,6 +30,12 @@ h1 {
     padding-bottom: 5pt;
 }
 
+.report_content_header {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: x-large;
+}
+
 .report_section {
     padding-top: 20pt;
 }
