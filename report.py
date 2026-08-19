@@ -3,6 +3,11 @@ def GenerateReportHTML(matches: dict):
     html_data = html_template.read()
     html_template.close()
 
+    css_file = open("report.css", "r")
+    css_data = css_file.read()
+    css_file.close()
+    html_data = html_data.replace("%%STYLE_SECTION%%", css_data)
+
     template_sections = html_data.split("%%REPORT_SECTION%%")
     pre_report_section = template_sections[0]
     report_section = template_sections[1]
