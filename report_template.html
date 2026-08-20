@@ -11,9 +11,9 @@
     <div class="report_tab">
         <div class="report_tab_header">Select report to view</div>
         <span>
-            <button class="report_option">By Email</button>
-            <button class="report_option">By Phone Number</button>
-            <button class="report_option">By Name</button>
+            <button class="report_option" onclick="showReport(event, 'Email')">By Email</button>
+            <button class="report_option" onclick="showReport(event, 'Phone')">By Phone Number</button>
+            <button class="report_option" onclick="showReport(event, 'Name')">By Name</button>
         </span>
     </div>
 
@@ -41,5 +41,8 @@
         %%REPORT_SECTION%%
     </div>
     %%REPORT_CONTENT_SECTION%%
+    <script>
+        %%SCRIPT_SECTION%%
+    </script>
 </body>
 </html>

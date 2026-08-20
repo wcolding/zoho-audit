@@ -19,7 +19,7 @@ h1 {
 }
 
 .report_content {
-    display: grid;
+    display: none;
     place-items: center;
 }
 
