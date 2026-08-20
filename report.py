@@ -33,16 +33,16 @@ def get_report_content(template: str, matcher: Matcher) -> str:
     return content
 
 def generate_report_HTML(email_matcher: EmailMatcher, phone_matcher: PhoneMatcher, name_matcher:NameMatcher):
-    html_template = open("report_template.html", "r")
+    html_template = open("template/report_template.html", "r")
     html_data = html_template.read()
     html_template.close()
 
-    css_file = open("report.css", "r")
+    css_file = open("template/report.css", "r")
     css_data = css_file.read()
     css_file.close()
     html_data = html_data.replace("%%STYLE_SECTION%%", css_data)
 
-    js_file = open("report.js", "r")
+    js_file = open("template/report.js", "r")
     js_data = js_file.read()
     js_file.close()
     html_data = html_data.replace("%%SCRIPT_SECTION%%", js_data)
